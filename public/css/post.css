@@ -1,0 +1,8 @@
+.post .tags_holder {
+  line-height: 40px;
+  vertical-align: baseline;
+}
+
+.post .tagger {
+  line-height: normal;
+}
