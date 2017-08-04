@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   });
 
+  
 
   $(".tag_holder").on("click", function(evt) {
     $(this).children(".tagger_input").focus();
