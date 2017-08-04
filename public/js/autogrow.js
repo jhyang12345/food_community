@@ -25,12 +25,14 @@
                     whiteSpace: 'nowrap'
                 }),
                 check = function() {
+                    console.log("launched!");
 
                     if (val === (val = input.val())) {return;}
 
                     // Enter new content into testSubject
                     var escaped = val.replace(/&/g, '&amp;').replace(/\s/g,'&nbsp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
                     testSubject.html(escaped);
+                    console.log("autogrow", escaped);
 
                     // Calculate new width + whether to change
                     var testerWidth = testSubject.width(),
@@ -48,7 +50,7 @@
 
             testSubject.insertAfter(input);
 
-            $(this).bind('keyup keydown blur update', check);
+            $(this).bind('keyup keydown blur update keypress', check);
 
         });
 
