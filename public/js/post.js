@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   autosize($("textarea"));
 
+  $(".tags_holder").append('<span class="tagger tag_holder">' +
+                '<span class="starting_sharp">#</span>' +
+                '<input type="text" class="tagger_input" placeholder="" spellcheck="false" />' +
+              '</span>');
+
   $(".tagger_input").autoGrowInput({minWidth:1,comfortZone:3});
-
   $(".tagger_input").trigger("update");
-
   $(".tagger_input").last().on("keyup", function(evt) {
     taggerKeyup(evt);
   });
@@ -18,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $(".tagger_input").last().on("focus", function(evt){
 
   });
+
 
   $(".tag_holder").on("click", function(evt) {
     $(this).children(".tagger_input").focus();
@@ -68,10 +72,7 @@ function taggerKeyup(evt) {
     $(".tagger_input").last().on("keydown", function(evt) {
       taggerKeyDown(evt);
     });
-
-    $(".tagger_input").last().on("focus", function(evt){
-
-    });
+    
   }
 }
 
@@ -80,6 +81,5 @@ function taggerKeyDown(evt) {
 
   var buffer = $curElem.val().trim(" ");
   var actual = $curElem.last().val();
-
 
 }

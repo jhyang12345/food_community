@@ -19,10 +19,10 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js" ></script>
-
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"  />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" type="text/css"  />
 
   </head>
   <body>
@@ -46,7 +46,35 @@
       </div>
     </nav>
 
+    <div class="container_box">
+      <div class="login_holder">
+        <div class="login_title">
+          로고
+        </div>
+        <div class="input_holder">
+          <div class="form_container email_container">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" name="email" id="email" placeholder="이메일" />
+          </div>
 
+          <div class="form_container">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" name="password" id="password" placeholder="비밀번호"/>
+          </div>
+
+        </div>
+
+        <div class="buttons_holder">
+          <button type="submit" class="signin custom_button">로그인</button>
+          <div class="splitter">
+            - 혹은 -
+          </div>
+          <button type="submit" class="signup custom_button">회원가입</button>
+        </div>
+
+
+      </div>
+    </div>
 
   </body>
 </html>
