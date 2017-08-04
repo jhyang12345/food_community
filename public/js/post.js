@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
               '</span>');
 
   $(".tagger_input").autoGrowInput({minWidth:1,comfortZone:3});
-  $(".tagger_input").trigger("update");
+  $(".tagger_input").trigger("input");
   $(".tagger_input").last().on("keyup", function(evt) {
     taggerKeyup(evt);
   });
@@ -37,15 +37,19 @@ function taggerKeyup(evt) {
   var buffer = $curElem.val().trim(" ");
   var actual = $curElem.last().val();
 
-  if(evt.keyCode == 8 && actual.length == 0 && $(".tagger_input").length > 1) {
-    if($(evt.target.parentElement).prev()) {
-      $(evt.target.parentElement).prev().children(".tagger_input").focus();
-    } else {
-      $(evt.target.parentElement).next().children(".tagger_input").focus();
+  console.log(evt.target.text);
+  if(evt.target.text != undefined) {
+    if(evt.target.text.length == 0 && evt.keyCode == 8 && actual.length == 0 && $(".tagger_input").length > 1) {
+      if($(evt.target.parentElement).prev()) {
+        $(evt.target.parentElement).prev().children(".tagger_input").focus();
+      } else {
+        $(evt.target.parentElement).next().children(".tagger_input").focus();
+      }
+      $(evt.target.parentElement).remove();
+      return;
     }
-    $(evt.target.parentElement).remove();
-    return;
   }
+
 
 
   if(buffer.length == 0) {
@@ -72,14 +76,16 @@ function taggerKeyup(evt) {
     $(".tagger_input").last().on("keydown", function(evt) {
       taggerKeyDown(evt);
     });
-    
+
   }
 }
 
 function taggerKeyDown(evt) {
   var $curElem = $(evt.target);
 
+
   var buffer = $curElem.val().trim(" ");
   var actual = $curElem.last().val();
 
+  evt.target.text = buffer;
 }

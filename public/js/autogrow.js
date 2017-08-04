@@ -8,7 +8,7 @@
             comfortZone: 70
         }, o);
 
-        this.filter('input:text').each(function(){
+        this.filter('input:text').each(function() {
 
             var minWidth = o.minWidth || $(this).width(),
                 val = '#',
